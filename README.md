@@ -1,6 +1,6 @@
 == README
 
-# task_guide, aka Listeroo. 
+# listeroo
 
 ## Summary
 The intention of this project is to use Rails nested-resources (has_many / belongs_to) to create a web app that 
