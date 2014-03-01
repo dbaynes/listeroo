@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<div class="field">
+  <b>Step Name:</b><br />
+  <%= @step.stepname %>
+</div>
+<div class="field">
+  <b>Status:</b><br/>
+  <%= @step.stepstatus %>
+</div>
+<div class="field">
+  <b>Date Created</b><br/>
+  <%= @step.created_at%>
+</div>
+<div class="field">
+  <b>Last Updated</b><br/>
+  <%= @step.updated_at%>
+</div>
+<br/>
+<br/>
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', tasks_path %>

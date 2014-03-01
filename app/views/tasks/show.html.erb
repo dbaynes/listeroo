@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<div class="field">
+  <b>Task Name:</b><br />
+  <%= @task.taskname %>
+</div>
+<div class="field">
+  <b>Status:</b><br/>
+  <%= @task.taskstatus %>
+</div>
+<div class="field">
+  <b>Date Created</b><br/>
+  <%= @task.created_at%>
+</div>
+<div class="field">
+  <b>Last Updated</b><br/>
+  <%= @task.updated_at%>
+</div>
+
+<div>
+<ol>
+<% for step in @task.steps %>
+
+    <li><%=link_to "#{step.stepname}", edit_task_step_path(@task.id,:id=>step) %></li>
+
+<% end %>
+</ol>
+</div>
+<br/>
+<br/>
+
+
+
+<%= link_to 'Edit', edit_task_path(@task) %> |
+<%= link_to 'Destroy', @task, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<%= link_to 'Back', tasks_path %>

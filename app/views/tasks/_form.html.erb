@@ -1,0 +1,42 @@
+<%= form_for(@task) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this task from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<div class="field">
+    <%= f.label :taskname, "Task Name" %><br />
+    <%= f.text_field :taskname %>
+  </div>
+	<div class="field" >
+    <%= f.label :taskstatus, "Task Status" %><br />
+    <%= f.text_field :taskstatus %>
+  </div>
+  <div class="field" style="width:20em;">
+	<hr></hr>
+</div>
+	<div>
+  <%= f.fields_for :steps do |s| %>
+
+	<p>
+	  Step Name<br />
+	  <%= s.text_field :stepname %>
+	  <%if params[:action] != 'new'%>
+	  	<%= s.check_box :_destroy %>
+	  	<%= s.label :_destroy, "Remove Step" %>
+		<%end%>
+	</p>
+  <% end %>
+
+ </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
